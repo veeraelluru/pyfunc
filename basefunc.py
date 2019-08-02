@@ -18,3 +18,16 @@ def load_dictionary(infile, split_char=' '):
         phoneDict[key] = ' '.join(words)
     
     return phoneDict
+
+def readFile(file):    
+    if(isfile(file)):
+        f = open(file)
+        lines = [line.rstrip() for line in f]
+        return lines
+    else:
+        print ("File: " + file +" does not exists")
+        sys.exit(1);    
+
+def getFileNames(dirname, ext):
+    filenames = [f for f in listdir(dirname) if re.search(ext, f) and isfile(join(dirname, f))]
+    return filenames        
