@@ -41,3 +41,7 @@ def writeFile(file, lines):
   f = open(file, 'w')
   for line in lines:        
       f.write(line + "\n")
+
+def createDirectories(dirname):
+    if(not isdir(dirname)):
+        mkdir(dirname)        
