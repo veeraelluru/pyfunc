@@ -26,7 +26,7 @@ def readFile(file):
         return lines
     else:
         print ("File: " + file +" does not exists")
-        sys.exit(1);    
+        sys.exit(1)    
 
 def getFileNames(dirname, ext):
     filenames = [f for f in listdir(dirname) if re.search(ext, f) and isfile(join(dirname, f))]
@@ -36,3 +36,8 @@ def getFullFileNames(dirname, ext):
     filenames = getFileNames(dirname, ext)
     full_filenames = [join(dirname, f) for f in filenames]
     return full_filenames    
+
+def writeFile(file, lines): 
+  f = open(file, 'w')
+  for line in lines:        
+      f.write(line + "\n")
