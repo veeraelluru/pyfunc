@@ -45,3 +45,7 @@ def writeFile(file, lines):
 def createDirectories(dirname):
     if(not isdir(dirname)):
         mkdir(dirname)        
+
+def convertMonoFormat(fValue):  
+    val = int(round(fValue * 1e7))
+    return val
