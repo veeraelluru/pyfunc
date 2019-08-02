@@ -31,3 +31,8 @@ def readFile(file):
 def getFileNames(dirname, ext):
     filenames = [f for f in listdir(dirname) if re.search(ext, f) and isfile(join(dirname, f))]
     return filenames        
+
+def getFullFileNames(dirname, ext):
+    filenames = getFileNames(dirname, ext)
+    full_filenames = [join(dirname, f) for f in filenames]
+    return full_filenames    
