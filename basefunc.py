@@ -37,7 +37,7 @@ def getFullFileNames(dirname, ext):
     full_filenames = [join(dirname, f) for f in filenames]
     return full_filenames    
 
-def readFile(file):    
+def readFile1(file):    
     if(isfile(file)):
         f = open(file)
         lines = [line.rstrip() for line in f]
@@ -45,3 +45,12 @@ def readFile(file):
     else:
         print ("File: " + file +" does not exists")
         sys.exit(1);    
+
+def writeFile(file, lines): 
+    f = open(file, 'w');
+    for line in lines:        
+        f.write(line + "\n")
+
+def createDirectories(dirname):
+    if(not isdir(dirname)):
+        mkdir(dirname)                

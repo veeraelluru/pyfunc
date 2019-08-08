@@ -7,6 +7,15 @@ from os.path import isfile, isdir, join
 from os import listdir
 from os import mkdir
 
+def readFile(file):    
+    if(isfile(file)):
+        f = open(file)
+        lines = [line.rstrip() for line in f]
+        return lines
+    else:
+        print ("File: " + file +" does not exists")
+        sys.exit(1);    
+
 def load_dictionary(infile, split_char=' '):
     phoneDict = dict()
     lines = readFile(infile)
@@ -18,3 +27,7 @@ def load_dictionary(infile, split_char=' '):
         phoneDict[key] = ' '.join(words)
     
     return phoneDict
+
+def getFileNames(dirname, ext):
+    filenames = [f for f in listdir(dirname) if re.search(ext, f) and isfile(join(dirname, f))]
+    return filenames     
