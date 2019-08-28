@@ -17,3 +17,7 @@ def writeJsonFile(dictList, keyname, outJsonFile):
 def load_dictionary(infile, split_char=' '):
     phoneDict = dict()
     lines = readFile(infile)
+
+def getFileNames(dirname, ext):
+    filenames = [f for f in listdir(dirname) if re.search(ext, f) and isfile(join(dirname, f))]
+    return filenames    
